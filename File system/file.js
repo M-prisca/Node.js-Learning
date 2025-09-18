@@ -21,3 +21,12 @@ fs.writeFile("./blog.txt", "Hello world", () => {
 fs.writeFile("./blog1.txt", "Hello again", () => {
   console.log("file was written");
 });
+
+// directories
+
+fs.mkdir("../assets", (err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log("folder created");
+});
