@@ -1,3 +1,4 @@
+const { error } = require("console");
 const fs = require("fs");
 
 // Reading the files
@@ -32,6 +33,17 @@ if (!fs.existsSync("../assets")) {
   });
 } else {
   fs.rmdir("../assets", (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("file deleted");
+  });
+}
+
+// delete a file.
+
+if (fs.existsSync("./deleteme.txt")) {
+  fs.unlink("./deleteme.txt", (err) => {
     if (err) {
       console.log(err);
     }
