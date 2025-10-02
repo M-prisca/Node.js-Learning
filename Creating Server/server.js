@@ -16,12 +16,15 @@ const server = http.createServer((req, res) => {
   switch (req.url) {
     case "/":
       filepath += "index.html";
+      res.statusCode = 200;
       break;
     case "/about":
       filepath += "about.html";
+      res.statusCode = 200;
       break;
     default:
       filepath += "404.html";
+      res.statusCode = 404;
   }
 
   // Returning HTML pages
