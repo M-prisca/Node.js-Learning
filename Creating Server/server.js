@@ -10,9 +10,22 @@ const server = http.createServer((req, res) => {
   //   res.write("hello, prisca");
   //   res.end();
 
-  // Returning HTML pages
+  //Basic Routing
+  let filepath = "../views/";
 
-  fs.readFile("../views/index.html", (err, data) => {
+  switch (req.url) {
+    case "/":
+      filepath += "index.html";
+      break;
+    case "/about":
+      filepath += "about.html";
+      break;
+    default:
+      filepath += "404.html";
+  }
+
+  // Returning HTML pages
+  fs.readFile(filepath, (err, data) => {
     if (err) {
       console.log(err);
       res.end();
